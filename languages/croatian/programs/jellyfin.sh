@@ -3,7 +3,10 @@
 read -p 'Odaberite mapu koja sadrži vaše medije (filmove, serije)' mapa
 echo $mapa
 
-echo 'Sve imformacije o ovome programu bit će spremljene u $HOME/jellyfin'
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+echo 'Sve informacije o ovome programu bit će spremljene u $HOME/jellyfin'
 mkdir $HOME/jellyfin
 mkdir $HOME/jellyfin/config
 mkdir $HOME/jellyfin/cache

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo 'All information about the program will be stored in $HOME/home-assistant'
+echo 'Sve bitne informacije biti će spremljene u $HOME/home-assistant'
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 mkdir $HOME/home-assistant
 mkdir $HOME/home-assistant/config
 cat > ~/home-assistant/docker-compose.yml << END
