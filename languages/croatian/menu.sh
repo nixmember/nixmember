@@ -7,9 +7,9 @@ PS3="> "
 select option in "Setup" "Info" "Quit"
 do
     case $option in
-        "Setup" ) source languages/croatian/setup.sh; break;;
-        "Info" ) source languages/croatian/base.sh; break;;
-        "Quit" ) exit;;
+        "Instalacija" ) source languages/croatian/setup.sh; break;;
+        "Informacije" ) source languages/croatian/base.sh; break;;
+        "Izlaz" ) exit;;
         * ) echo "Neponuđena opcija";;
     esac
 done

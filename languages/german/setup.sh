@@ -1,1 +1,3 @@
-!/bin/bash
+#!/bin/bash
+
+# translation soon

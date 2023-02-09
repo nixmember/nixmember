@@ -2,7 +2,7 @@ set -e
 
 cat << "EOF"
 
-Dobrodošli u NixMember, linux skriptu koja vam pomaže da instalirate i konfigurirate vaš novi Linux server.
+Dobrodošli u NixMember, linux skriptu koja vam pomaže da instalirate i konfigurirate vaš Linux server.
 
 Namjenjena je za početnike u Linux svijetu.
 
