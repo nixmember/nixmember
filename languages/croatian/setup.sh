@@ -3,7 +3,6 @@
 echo "Odaberite program koji želite instalirati: "
 
 PS3="> "
-
 DIR="$( echo $(cd ../ && pwd) )/nixmember/languages/programs"
 
 select option in "Bitwarden - centralno mjesto za sve vaše lozinke (instalacija samo na engleskom jeziku)" "Home Assistant - program koji vam pomaže upravljati svojim domom" "Jellyfin - svi vaši filmovi i serije na jednom mjestu!"
