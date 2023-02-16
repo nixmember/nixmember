@@ -7,8 +7,8 @@ PS3="> "
 select option in "Setup" "Info" "Quit"
 do
     case $option in
-        "Setup" ) source setup.sh; break;;
-        "Info" ) source base.sh; break;;
+        "Setup" ) source languages/english/setup.sh; break;;
+        "Info" ) source languages/english/base.sh; break;;
         "Quit" ) exit;;
         * ) echo "No such option";;
     esac
