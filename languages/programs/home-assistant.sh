@@ -3,9 +3,6 @@
 echo 'Sve bitne informacije biti će spremljene u $HOME/home-assistant'
 
 if [ -f "/usr/bin/docker" ]; then
-	curl -fsSL https://get.docker.com -o get-docker.sh
-	sudo sh get-docker.sh
-	sudo apt install docker-compose
 	mkdir $HOME/home-assistant
 	mkdir $HOME/home-assistant/config
 	cat > ~/home-assistant/docker-compose.yml << END
@@ -23,6 +20,9 @@ if [ -f "/usr/bin/docker" ]; then
 END
 	docker-compose up -d $HOME/home-assistant/docker-compose.yml
 else
+	curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo apt install docker-compose
 	mkdir $HOME/home-assistant
 	mkdir $HOME/home-assistant/config
 	cat > ~/home-assistant/docker-compose.yml << END
