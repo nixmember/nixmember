@@ -13,5 +13,3 @@ Das NixMember-Team besteht aus 2 Mitgliedern, und zwar:
 Wir sind die Schüler vor der 7. Klasse am OŠ Ivana Gorana Kovačića in Zagreb.
 
 EOF
-
-source setup.sh
