@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 cat << "EOF"
@@ -10,6 +12,6 @@ Program je napravljen od strane NixMember tima, a možete nas pronaći na https:
 NixMember tim se sastoji od 2 člana, a to su:
 - Jakov Koprivnjak
 - Lukas Hajneman
-Mi smo učenici 7. razreda OŠ "Ivan Goran Kovačić" u Zagrebu.
+Mi smo učenici 7. razreda OŠ Ivana Gorana Kovačića u Zagrebu.
 
 EOF

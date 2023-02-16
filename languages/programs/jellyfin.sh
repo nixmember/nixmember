@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p 'Odaberite mapu koja sadrži vaše medije (filmove, serije)' mapa
+read -p 'Odaberite mapu koja sadrži vaše medije (filmove, serije) ' mapa
 
 if [ -f "/usr/bin/docker" ]; then
 	echo 'Sve informacije o ovome programu bit će spremljene u $HOME/jellyfin'
