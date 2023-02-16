@@ -7,7 +7,7 @@ if [ -f "/usr/bin/docker" ]; then
 	mkdir $HOME/jellyfin
 	mkdir $HOME/jellyfin/config
 	mkdir $HOME/jellyfin/cache
-	cat > ~/home-assistant/docker-compose.yml << END
+	cat > ~/jellyfin/docker-compose.yml << END
 	version: '3.5'
 	services:
 	  jellyfin:
@@ -38,7 +38,7 @@ echo 'Sve informacije o ovome programu bit će spremljene u $HOME/jellyfin'
 mkdir $HOME/jellyfin
 mkdir $HOME/jellyfin/config
 mkdir $HOME/jellyfin/cache
-cat > ~/home-assistant/docker-compose.yml << END
+cat > ~/jellyfin/docker-compose.yml << END
 version: '3.5'
 services:
   jellyfin:
