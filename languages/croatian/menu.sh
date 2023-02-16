@@ -4,7 +4,7 @@ echo "Odaberite opciju: "
 
 PS3="> "
 
-select option in "Setup" "Info" "Quit"
+select option in "Instalacija" "Informacije" "Izlaz"
 do
     case $option in
         "Instalacija" ) source languages/croatian/setup.sh; break;;
