@@ -5,7 +5,7 @@ echo 'Sve bitne informacije biti će spremljene u $HOME/home-assistant'
 if [ -f "/usr/bin/docker" ]; then
 	mkdir $HOME/home-assistant
 	mkdir $HOME/home-assistant/config
-	cat > ~/home-assistant/docker-compose.yml << END
+	cat > $HOME/home-assistant/docker-compose.yml << END
 	version: '3'
 	services:
 	  homeassistant:
