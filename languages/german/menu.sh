@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo "Choose a option: "
+echo "Wählen Sie eine Option: "
 
 PS3="> "
 
-select option in "Setup" "Info" "Quit"
+select option in "Aufstellen" "Information" "Aufhören"
 do
     case $option in
-        "Setup" ) source languages/english/setup.sh; break;;
-        "Info" ) source languages/english/base.sh; break;;
-        "Quit" ) exit;;
-        * ) echo "No such option";;
+        "Aufstellen" ) source languages/english/setup.sh; break;;
+        "Information" ) source languages/english/base.sh; break;;
+        "Aufhören" ) exit;;
+        * ) echo "Keine solche Option";;
     esac
 done
 
