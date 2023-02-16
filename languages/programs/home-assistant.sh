@@ -1,8 +1,11 @@
 #!/bin/bash
 
 echo 'Sve bitne informacije biti će spremljene u $HOME/home-assistant'
+
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
+sudo apt install docker-compose
+
 mkdir $HOME/home-assistant
 mkdir $HOME/home-assistant/config
 cat > ~/home-assistant/docker-compose.yml << END
