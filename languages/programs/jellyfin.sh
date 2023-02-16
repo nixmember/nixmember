@@ -27,7 +27,8 @@ if [ -f "/usr/bin/docker" ]; then
 	    extra_hosts:
 	      - "host.docker.internal:host-gateway"
 END
-	docker-compose up -d $HOME/jellyfin/docker-compose.yml
+	cd $HOME/jellyfin
+	docker-compose up -d
 else
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -57,5 +58,6 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 END
-docker-compose up -d $HOME/jellyfin/docker-compose.yml
+	cd $HOME/jellyfin
+	docker-compose up -d
 fi
