@@ -18,7 +18,8 @@ if [ -f "/usr/bin/docker" ]; then
 	    privileged: true
 	    network_mode: host
 END
-	docker-compose up -d $HOME/home-assistant/docker-compose.yml
+	cd $HOME/home-assistant
+	docker-compose up -d docker-compose.yml
 else
 	curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
@@ -38,5 +39,6 @@ else
 	    privileged: true
 	    network_mode: host
 END
-	docker-compose up -d $HOME/home-assistant/docker-compose.yml
+	cd $HOME/home-assistant
+	docker-compose up -d docker-compose.yml
 fi
