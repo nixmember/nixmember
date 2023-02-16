@@ -19,7 +19,7 @@ services:
     network_mode: host
 END
 	cd $HOME/home-assistant
-	docker-compose up -d docker-compose.yml
+	docker-compose up -d
 else
 	curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
@@ -40,5 +40,5 @@ services:
     network_mode: host
 END
 	cd $HOME/home-assistant
-	docker-compose up -d docker-compose.yml
+	docker-compose up -d
 fi
