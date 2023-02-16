@@ -6,17 +6,17 @@ if [ -f "/usr/bin/docker" ]; then
 	mkdir $HOME/home-assistant
 	mkdir $HOME/home-assistant/config
 	cat > $HOME/home-assistant/docker-compose.yml << END
-	version: '3'
-	services:
-	  homeassistant:
-	    container_name: homeassistant
-	    image: "ghcr.io/home-assistant/home-assistant:stable"
-	    volumes:
-	      - $HOME/home-assistant/config:/config
-	      - /etc/localtime:/etc/localtime:ro
-	    restart: unless-stopped
-	    privileged: true
-	    network_mode: host
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /PATH_TO_YOUR_CONFIG:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
 END
 	cd $HOME/home-assistant
 	docker-compose up -d docker-compose.yml
@@ -27,17 +27,17 @@ else
 	mkdir $HOME/home-assistant
 	mkdir $HOME/home-assistant/config
 	cat > ~/home-assistant/docker-compose.yml << END
-	version: '3'
-	services:
-	  homeassistant:
-	    container_name: homeassistant
-	    image: "ghcr.io/home-assistant/home-assistant:stable"
-	    volumes:
-	      - $HOME/home-assistant/config:/config
-	      - /etc/localtime:/etc/localtime:ro
-	    restart: unless-stopped
-	    privileged: true
-	    network_mode: host
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /PATH_TO_YOUR_CONFIG:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
 END
 	cd $HOME/home-assistant
 	docker-compose up -d docker-compose.yml
