@@ -16,12 +16,13 @@ import (
 )
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(InstallCmd)
 	rootCmd.AddCommand(programsCmd)
 
 	InstallCmd.AddCommand(programs.Bitwarden)
+	InstallCmd.AddCommand(programs.HomeAssistant)
+	InstallCmd.AddCommand(programs.Jellyfin)
 }
 
 // rootCmd represents the base command when called without any subcommands
@@ -33,8 +34,8 @@ var rootCmd = &cobra.Command{
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "e",
-	Long:  "e",
+	Short: "Print version info",
+	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		figure.NewFigure("nxm", "", true).Print()
 		fmt.Println("\nnxm v1.0.0 - a command line tool for (home-)servers that aims to make self-hosting easier.")
@@ -46,7 +47,7 @@ var versionCmd = &cobra.Command{
 
 var InstallCmd = &cobra.Command{
 	Use:   "install",
-	Short: "",
+	Short: "Install a program",
 	Long:  "",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -57,7 +58,7 @@ var InstallCmd = &cobra.Command{
 
 var programsCmd = &cobra.Command{
 	Use:   "programs",
-	Short: "",
+	Short: "List all avalible programs",
 	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Programs currently avalible:\n")
