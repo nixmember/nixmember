@@ -8,12 +8,20 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/nixmember/nixmember/programs"
+
 	"github.com/common-nighthawk/go-figure"
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
 
 func init() {
+	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(InstallCmd)
+	rootCmd.AddCommand(programsCmd)
+
+	InstallCmd.AddCommand(programs.Bitwarden)
 }
 
 // rootCmd represents the base command when called without any subcommands
@@ -29,10 +37,36 @@ var versionCmd = &cobra.Command{
 	Long:  "e",
 	Run: func(cmd *cobra.Command, args []string) {
 		figure.NewFigure("nxm", "", true).Print()
-		fmt.Println("\nnixmember v1.0.0")
-		fmt.Println("Copyright © 2022-2023 nxm (NixMember Team) \n")
+		fmt.Println("\nnxm v1.0.0 - a command line tool for (home-)servers that aims to make self-hosting easier.")
+		fmt.Println("Copyright © 2022-2023 NixMember Team \n")
 		fmt.Println("This program is open source, you can freely redestribute it under the terms of the MIT license.")
 		fmt.Println("You can find the source code at https://github.com/nixmember/nixmember")
+	},
+}
+
+var InstallCmd = &cobra.Command{
+	Use:   "install",
+	Short: "",
+	Long:  "",
+	Args:  cobra.MinimumNArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Please supply a program to install \n")
+		fmt.Println("To see all programs avalible run `nxm programs`")
+	},
+}
+
+var programsCmd = &cobra.Command{
+	Use:   "programs",
+	Short: "",
+	Long:  "",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Programs currently avalible:\n")
+		fmt.Print("Bitwarden - a open source password manager - ")
+		color.Blue("`bitwarden`")
+		fmt.Print("Jellyfin - The Free Software Media System - ")
+		color.Magenta("`jellyfin`")
+		fmt.Print("Home Assistant - open source home automation that puts local control and privacy first - ")
+		color.Cyan("`homeassistant`")
 	},
 }
 
@@ -43,16 +77,4 @@ func Execute() {
 	if err != nil {
 		os.Exit(1)
 	}
-}
-
-func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.nixmember.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
