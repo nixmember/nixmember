@@ -18,11 +18,14 @@ import (
 func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(InstallCmd)
+	rootCmd.AddCommand(UninstallCmd)
 	rootCmd.AddCommand(programsCmd)
 
 	InstallCmd.AddCommand(programs.Bitwarden)
 	InstallCmd.AddCommand(programs.HomeAssistant)
 	InstallCmd.AddCommand(programs.Jellyfin)
+
+	UninstallCmd.AddCommand(programs.Bitwarden)
 }
 
 // rootCmd represents the base command when called without any subcommands
@@ -53,6 +56,16 @@ var InstallCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Please supply a program to install \n")
 		fmt.Println("To see all programs avalible run `nxm programs`")
+	},
+}
+
+var UninstallCmd = &cobra.Command{
+	Use:   "uninstall",
+	Short: "Uninstall a program",
+	Long:  "",
+	Args:  cobra.MinimumNArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Please supply a program to uninstall \n")
 	},
 }
 

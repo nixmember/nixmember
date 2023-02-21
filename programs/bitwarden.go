@@ -18,9 +18,28 @@ var Bitwarden = &cobra.Command{
 	},
 }
 
+var BitwardenUninstallation = &cobra.Command{
+	Use: "bitwarden",
+	Run: func(cmd *cobra.Command, args []string) {
+		bitwardenUninstallation()
+	},
+}
+
 func bitwardenInstallation() {
 
 	cmd := exec.Command("/bin/bash", "-c", bitwardenScript)
+
+	stdout, err := cmd.Output()
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	fmt.Println(string(stdout))
+}
+
+func bitwardenUninstallation() {
+	cmd := exec.Command("/bin/bash", "-c", "sudo userdel bitwarden; sudo rm -rf /opt/bitwarden")
 
 	stdout, err := cmd.Output()
 
