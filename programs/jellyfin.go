@@ -14,13 +14,32 @@ var jellyfinScript string
 var Jellyfin = &cobra.Command{
 	Use: "jellyfin",
 	Run: func(cmd *cobra.Command, args []string) {
-		homeAssistantInstallation()
+		jellyfinInstallation()
 	},
 }
 
-func JellyfinInstallation() {
+var JellyfinUninstallation = &cobra.Command{
+	Use: "jellyfin",
+	Run: func(cmd *cobra.Command, args []string) {
+		jellyfinUninstallation()
+	},
+}
+
+func jellyfinInstallation() {
 
 	cmd := exec.Command("/bin/bash", "-c", jellyfinScript)
+
+	stdout, err := cmd.Output()
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	fmt.Println(string(stdout))
+}
+
+func jellyfinUninstallation() {
+	cmd := exec.Command("/bin/bash", "-c", "rm -rf $HOME/jellyfin")
 
 	stdout, err := cmd.Output()
 

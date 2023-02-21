@@ -18,9 +18,28 @@ var HomeAssistant = &cobra.Command{
 	},
 }
 
+var HomeAssistantUninstallation = &cobra.Command{
+	Use: "home-assistant",
+	Run: func(cmd *cobra.Command, args []string) {
+		homeAssistantUninstallation()
+	},
+}
+
 func homeAssistantInstallation() {
 
 	cmd := exec.Command("/bin/bash", "-c", homeAssistantScript)
+
+	stdout, err := cmd.Output()
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	fmt.Println(string(stdout))
+}
+
+func homeAssistantUninstallation() {
+	cmd := exec.Command("/bin/bash", "-c", "rm -rf $HOME/home-assistant")
 
 	stdout, err := cmd.Output()
 

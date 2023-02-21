@@ -25,7 +25,9 @@ func init() {
 	InstallCmd.AddCommand(programs.HomeAssistant)
 	InstallCmd.AddCommand(programs.Jellyfin)
 
-	UninstallCmd.AddCommand(programs.Bitwarden)
+	UninstallCmd.AddCommand(programs.BitwardenUninstallation)
+	UninstallCmd.AddCommand(programs.HomeAssistantUninstallation)
+	UninstallCmd.AddCommand(programs.JellyfinUninstallation)
 }
 
 // rootCmd represents the base command when called without any subcommands
